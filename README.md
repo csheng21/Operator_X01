@@ -12,14 +12,14 @@ Operator_X01 is an AI agent designed to assist you on your computer through the 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 NEXT Todo:
-** Improvement on performance page analysis
-** Selective page Content 
+** Improvement on performance page analysis\
+** Selective page Content \
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 # Give me your Opinion
-Contact: 
-Skype: hengcs11
-Mail: changsong.heng@gmail.com
+Contact:\
+Skype: hengcs11\
+Mail: changsong.heng@gmail.com\
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 Image 1.0:
