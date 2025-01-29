@@ -11,27 +11,26 @@ Operator_X01 is an AI agent designed to assist you on your computer through the 
 6. Done!
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
-NEXT Todo:
+NEXT Todo:\
 ** Improvement on performance page analysis\
-** Selective page Content \
+** Selective page Content
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-# Give me your Opinion
-Contact:\
+Please share your opinion to make it better\
 Skype: hengcs11\
-Mail: changsong.heng@gmail.com\
+Email: mail.hsoftdd@gmail.com
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
-Image 1.0:
+Image 1.0:\ _X01 summarize Page content
 ![Image](https://github.com/user-attachments/assets/3d617980-676a-41b3-8488-9e639b338768)
 
 
 
-Image 1.1:
+Image 1.1:\ Support Multi-language
 ![Image](https://github.com/user-attachments/assets/17e4727e-945c-48ff-bb21-1ff040bcec14)
 
 
 
-Image 1.2:
+Image 1.2:\ Continues discuss with _x01 
 ![Image](https://github.com/user-attachments/assets/f7bbae24-9d73-4c70-aa45-4fc2a58bcd98)
 
