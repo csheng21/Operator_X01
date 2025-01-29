@@ -19,7 +19,7 @@ NEXT Todo:\
 Please share your opinion to make it better\
 Skype: hengcs11\
 LinkedIn:https://www.linkedin.com/in/heng-5a5ab657/ \
-Email: mail.hsoftdd@gmail.com
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 Image 1.0:\ _X01 summarize Page content
