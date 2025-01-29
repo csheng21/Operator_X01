@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Operator_X01",
+  "version": "1.0",
+  "description": "Shows how to display the same side panel on every site using the Side Panel API.",
+  "icons": {},
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "action": {
+    "default_title": "Click to open panel"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "permissions": [
+    "sidePanel",
+    "scripting",
+    "downloads",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.deepseek.com/*",
+    "<all_urls>"
+  ]
+}

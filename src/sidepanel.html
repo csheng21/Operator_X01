@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Operator_X01</title>
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #202124;
+        }
+
+        /* Header styles */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin: 0;
+            color: #202124;
+        }
+
+        .header-info {
+            font-size: 12px;
+            color: #5f6368;
+            margin-bottom: 16px;
+        }
+
+        /* Language selector */
+        .language-selector {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            min-width: 48px;
+            padding: 6px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            text-align: center;
+            background: white;
+        }
+
+        .lang-btn.active {
+            background: #4285f4;
+            color: white;
+            border-color: #4285f4;
+        }
+
+        .lang-btn:not(.active) {
+            color: #202124;
+        }
+
+        /* Chat area */
+        #response {
+            margin: 8px 0;
+            padding: 8px 0;
+            margin-bottom: 80px;
+            max-height: calc(100vh - 220px);
+            overflow-y: auto;
+        }
+
+        /* Message styles */
+    /* Message styles */
+.message {
+    margin-bottom: 8px;  /* Reduced from 12px */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;  /* Tiny gap between header and bubble */
+}
+
+.message-header {
+    font-size: 11px;
+    color: #5f6368;
+    padding: 0 16px;
+    margin: 0;  /* Remove margin */
+}
+
+.user .message-header {
+    align-self: flex-end;
+    margin-right: 16px;
+}
+
+.assistant .message-header {
+    align-self: flex-start;
+    margin-left: 16px;
+}
+
+.message-content {
+    padding: 8px 12px;  /* Slightly reduced padding */
+    margin: 0 16px;    /* Remove vertical margin */
+    border-radius: 18px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+/* Adjust spacing between message groups */
+.message + .message {
+    margin-top: 12px;  /* Space between message groups */
+}
+
+/* Response container adjustments */
+#response {
+    margin: 8px 0;
+    padding: 4px 0;  /* Reduced padding */
+    margin-bottom: 80px;
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+}
+
+            .highlight {
+      color: #2563eb;
+      font-weight: 500;
+    }
+        .user .message-content {
+            background: #4285f4;
+            color: white;
+            margin-left: auto;
+            border-radius: 18px 18px 4px 18px;
+        }
+
+        .assistant .message-content {
+            background: #f8f9fa;
+            color: #202124;
+            margin-right: auto;
+            border-radius: 18px 18px 18px 4px;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Input area */
+        .input-area {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 12px 16px;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        #userInput {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        #userInput:focus {
+            border-color: #4285f4;
+            box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.1);
+        }
+
+        /* Button styles */
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        #sendButton {
+            background: #4285f4;
+            color: white;
+        }
+
+        #sendButton:hover {
+            background: #1a73e8;
+        }
+
+        #savePageButton {
+            background: #f8f9fa;
+            color: #202124;
+            border: 1px solid #dadce0;
+        }
+
+        #savePageButton:hover {
+            background: #f1f3f4;
+        }
+
+        /* Loading animation */
+        .loading-message {
+            background: #f8f9fa;
+            padding: 10px 14px;
+            border-radius: 18px;
+            margin: 2px 16px;
+            color: #5f6368;
+            border: 1px solid #e5e7eb;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: "Thinking"; }
+            40% { content: "Thinking."; }
+            60% { content: "Thinking.."; }
+            80%, 100% { content: "Thinking..."; }
+        }
+
+        .thinking-animation::after {
+            content: "Thinking";
+            animation: dots 1.5s infinite;
+            display: inline-block;
+        }
+
+        /* Status message */
+        .status-message {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 8px 16px;
+            background: #e6f4ea;
+            color: #137333;
+            border-radius: 8px;
+            font-size: 13px;
+            animation: fadeInUp 0.3s ease-out;
+            z-index: 1000;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, 10px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        /* Scrollbar styling */
+        #response::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #response::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #response::-webkit-scrollbar-thumb {
+            background: #dadce0;
+            border-radius: 3px;
+        }
+        /* Add these styles to your CSS */
+.thinking-indicator {
+    background: #F0F7FF;  /* Light blue background */
+    padding: 12px 16px;
+    border-radius: 18px;
+    margin: 8px 16px;
+    color: #4285f4;  /* Google blue color */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #E1EFFF;
+}
+
+.dot-animation {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: #4285f4;
+    border-radius: 50%;
+    animation: dotPulse 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+    0%, 100% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+        /* Beta warning styles */
+.beta-warning {
+    display: flex;
+    align-items: center;
+    background-color: #FFF8E6 !important;
+    border: 1px solid #FFE5A3 !important;
+    color: #976300 !important;
+    padding: 12px !important;
+    font-size: 13px;
+    border-radius: 8px;
+    margin: 8px 16px;
+}
+
+.beta-warning svg {
+    flex-shrink: 0;
+    color: #976300;
+    margin-right: 8px;
+}
+
+.message .message-content.beta-warning {
+    background-color: #FFF8E6;
+    color: #976300;
+    border-color: #FFE5A3;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.message .beta-warning {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+        
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Operator_X01</h1>
+        <div class="language-selector">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="ms">BM</button>
+        </div>
+    </div>
+    <div class="header-info">
+        Developed by HengCS | Version 1.0
+    </div>
+    <div id="response"></div>
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Message..." />
+        <button id="sendButton">Send</button>
+        <button id="savePageButton">Analyse Page</button>
+    </div>
+    <div id="saveStatus"></div>
+    <script src="sidepanel.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "cookbook.sidepanel-global",
+  "version": "1.0.0",
+  "description": "This example demonstrates how to display the same side panel on every site using the [Side Panel API](https://developer.chrome.com/docs/extensions/reference/sidePanel/).",
+  "main": "offscreen.js",
+  "scripts": {
+       "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "dotenv-webpack": "^8.1.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
