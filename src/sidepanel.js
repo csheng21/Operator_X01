@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add event listeners
-    document.getElementById("sendButton").addEventListener("click", getChatGPTResponse);
+    document.getElementById("sendButton").addEventListener("click", getx01Response);
     document.getElementById("savePageButton").addEventListener("click", savePage);
 
     // Language selector handlers
@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("userInput").addEventListener("keypress", (event) => {
         if (event.key === "Enter") {
             event.preventDefault();
-            getChatGPTResponse();
+            getx01Response();
         }
     });
 });
 
-async function getChatGPTResponse() {
+async function getx01Response() {
     const userInput = document.getElementById("userInput").value;
     if (!userInput.trim()) return;
 
