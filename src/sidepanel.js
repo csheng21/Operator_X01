@@ -2,7 +2,7 @@
 Date 27/1/2025
 By: Heng CS
 Log:
-1. Add Save Page functionality with Deepseek integration
+1. Add Save Page functionality with AI integration
 1.1. Add chat history support
 1.2. Fix page feedback text length
 1.3. Add loading indicator
@@ -102,14 +102,14 @@ async function getChatGPTResponse() {
             ...messageHistory.filter(msg => msg.role !== "system")
         ];
 
-        const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+        const response = await fetch('/*API source*/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `/*API Key*/`
             },
             body: JSON.stringify({
-                model: "deepseek-chat",
+                model: "/*API Model */",
                 messages: messages,
                 max_tokens: 2000,
                 temperature: 0.7
@@ -231,14 +231,14 @@ async function savePage() {
 
         const analysisPrompt = `${basePrompts[currentLanguage]}\n\nContent: ${pageData.content}`;
 
-        const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+        const response = await fetch('/*API SOURCE*/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer sk-93647fd677a6466d8afabb41e5f59115`
+                'Authorization': `/* API KEY*/`
             },
             body: JSON.stringify({
-                model: "deepseek-chat",
+                model: "/*API Model*/",
                 messages: [
                     {
                         role: "system",
