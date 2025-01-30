@@ -23,7 +23,8 @@ LinkedIn:www.linkedin.com/in/heng-chang-song-5a5ab657
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 Video Demo:\
-https://youtu.be/DDSDvVWcyhM
+Use case 1: https://youtu.be/BYIxlT8qT9M \
+Use case 2: https://youtu.be/DDSDvVWcyhM
 
 Image 1.0: _X01 summarize Page content\
 ![Image](https://github.com/user-attachments/assets/3d617980-676a-41b3-8488-9e639b338768)
