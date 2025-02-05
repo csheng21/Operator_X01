@@ -1,5 +1,5 @@
 # Operator_X01
-Operator_X01 is an AI agent designed to assist you on your computer through the Chrome browser. It understands your viewed web pages and provides support like coding help, design advice, translations, and summaries. The code is simple and easy to understand, ensuring a smooth user experience.
+Operator_X01 is an AI agent designed to assist you on your computer through the browser. It understands your viewed web pages and provides support like coding help, design advice, translations, and summaries. The code is simple and easy to understand, ensuring a smooth user experience.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 # How to use
@@ -7,7 +7,7 @@ Operator_X01 is an AI agent designed to assist you on your computer through the 
 2. Unzip Project.zip.
 3. Go to the source code file sidepanel.js. Key in "API KEY".
 4. Open CMD, then run npm Build
-5. Upload the "dist" folder to Chrome extension manage.
+5. Upload the "dist" folder to web extension manage.
 6. Done!
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
